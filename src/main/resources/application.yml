@@ -1,0 +1,127 @@
+server:
+  port: 8080
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  datasource:
+    url: jdbc:mysql://localhost:3306/payvue?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=UTF-8
+    username: payvue
+    password: payvue
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME:food2dookie}
+    password: ${MAIL_PASSWORD:wwjl bqkm lpav rmsh}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+    default-encoding: UTF-8
+
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+            scope:
+              - openid
+              - profile
+              - email
+          github:
+            client-id: ${GITHUB_CLIENT_ID}
+            client-secret: ${GITHUB_CLIENT_SECRET}
+            scope:
+              - read:user
+              - user:email
+        provider:
+          github:
+            authorization-uri: https://github.com/login/oauth/authorize
+            token-uri: https://github.com/login/oauth/access_token
+            user-info-uri: https://api.github.com/user
+            user-name-attribute: id
+
+
+
+app:
+  mail:
+    template:
+      from: ${MAIL_FROM:noreply@payvue.com}
+      from-name: ${MAIL_FROM_NAME:Payvue}
+      template-prefix: alarm/
+      template-suffix: ""
+      brand-name: Payvue
+      footer: "문의: contact@payvue.com"
+      default-subject: "인증 메일"
+  verification:
+    base-url: ${VERIFICATION_BASE_URL:http://localhost:8080}
+    endpoint: /api/auth/verify
+    token-expiration: 24h
+security:
+  jwt:
+    issuer: payvue
+    access-token-ttl: 15m
+    refresh-token-ttl: 14d
+    secret: ${JWT_SECRET:CHANGE_ME_TO_AT_LEAST_32_CHARS_LONG_SECRET_KEY_123456}
+
+payment:
+  pg:
+    timeout-ms: 10000
+    naver:
+      base-url: https://dev-pay.paygate.naver.com
+      return-url: http://localhost:8080/payment/redirect/confirm
+      payment-window-base-url: https://test-m.pay.naver.com/instantPay/nfPayment
+      client-id: HN3GGCMDdTgGUfl0kFCo
+      client-secret: ftZjkkRNMR
+      chain-id: SFlCMUNON05kbE5
+      endpoints:
+        reserve: /naverpay-partner/naverpay/payments/v2/reserve
+        confirm: /naverpay-partner/naverpay/payments/v2/apply/payment
+        cancel: /naverpay-partner/naverpay/payments/v2/cancel/payment
+        history: /naverpay-partner/naverpay/payments/v2/history
+    toss:
+      base-url: https://api.tosspayments.com
+      secret-key: test_sk_Z1aOwX7K8myJqElNmPqm8yQxzvNP
+      endpoints:
+        virtual:
+          reserve: /v1/virtual-accounts
+          confirm: /v1/payments/{paymentKey}
+          cancel: /v1/payments/{paymentKey}/cancel
+          history: /v1/payments/{paymentKey}
+      virtual:
+        default-bank-code: "088"
+        valid-hours: 24
+        customer-name: "Payvue 가상 계좌 발급"
+
+logging:
+  level:
+    org.springframework.security: DEBUG

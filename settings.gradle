@@ -1,0 +1,16 @@
+rootProject.name = 'spring-backend-monolithic'
+
+includeBuild('/Users/a1/personal/fintech/payvue-core') {
+  dependencySubstitution {
+    substitute module('com.payvue:community') using project(':core-domain:community')
+    substitute module('com.payvue:transaction') using project(':core-domain:transaction')
+    substitute module('com.payvue:relation') using project(':core-domain:relation')
+    substitute module('com.payvue:asset-holdings') using project(':core-domain:asset-holdings')
+    substitute module('com.payvue:interaction') using project(':supporting-domain:interaction')
+    substitute module('com.payvue:user') using project(':supporting-domain:user')
+    substitute module('com.payvue:alarm') using project(':generic-sub-domain:alarm')
+    substitute module('com.payvue:payment') using project(':generic-sub-domain:payment')
+    substitute module('com.payvue:common') using project(':shared:common')
+    substitute module('com.payvue:asset') using project(':shared:asset')
+  }
+}

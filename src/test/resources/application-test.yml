@@ -1,0 +1,51 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+  
+  h2:
+    console:
+      enabled: true
+
+  data:
+    redis:
+      host: localhost
+      port: ${SPRING_DATA_REDIS_PORT:6379}
+      timeout: 2s
+      lettuce:
+        shutdown-timeout: 0ms
+  
+  mail:
+    host: localhost
+    port: 3025
+
+# JWT 설정
+jwt:
+  secret: test-secret-key-for-unit-testing-minimum-256-bits-required-for-jwt-hs256-algorithm
+  access-token-validity: 3600000
+  refresh-token-validity: 86400000
+
+# Verification 설정
+app:
+  verification:
+    base-url: http://localhost:8080
+    endpoint: /api/auth/verify
+
+# 로깅
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    com.payvue: DEBUG
