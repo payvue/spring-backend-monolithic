@@ -1,0 +1,107 @@
+<svg width="1600" height="920" viewBox="0 0 1600 920" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="220" y1="70" x2="1380" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8F5FF"/>
+      <stop offset="0.58" stop-color="#F1EBFF"/>
+      <stop offset="1" stop-color="#ECE7FF"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="250" y1="220" x2="1200" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8B5CF6" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#A78BFA" stop-opacity="0.34"/>
+    </linearGradient>
+    <filter id="shadow" x="-12%" y="-12%" width="124%" height="124%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#7C3AED" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrowMain" markerWidth="11" markerHeight="11" refX="10" refY="5.5" orient="auto">
+      <path d="M0 0L11 5.5L0 11V0Z" fill="#8B5CF6"/>
+    </marker>
+    <marker id="arrowMuted" markerWidth="11" markerHeight="11" refX="10" refY="5.5" orient="auto">
+      <path d="M0 0L11 5.5L0 11V0Z" fill="#6B7280"/>
+    </marker>
+    <pattern id="diag" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#F59E0B" stroke-opacity="0.35" stroke-width="3"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="920" fill="url(#bg)"/>
+  <ellipse cx="1288" cy="126" rx="232" ry="96" fill="#DDD6FE" fill-opacity="0.72"/>
+  <ellipse cx="250" cy="836" rx="292" ry="116" fill="#E9D5FF" fill-opacity="0.38"/>
+
+  <rect x="110" y="90" width="1380" height="740" rx="34" fill="#FFFFFF" stroke="#DDD6FE" stroke-width="2" filter="url(#shadow)"/>
+
+  <text x="170" y="164" fill="#6D28D9" font-size="24" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Package-Private Boundary + Hidden Translation Layer</text>
+  <text x="170" y="196" fill="#6B7280" font-size="15" font-family="IBM Plex Sans KR, sans-serif">Domain Model과 번역 계층은 같은 패키지 내부에 두고, 외부는 Port를 통해서만 접근</text>
+
+  <rect x="170" y="226" width="1260" height="92" rx="18" fill="#FBFAFF" stroke="url(#accent)" stroke-width="2"/>
+  <text x="200" y="262" fill="#5B21B6" font-size="18" font-family="IBM Plex Sans KR, sans-serif" font-weight="600">핵심 메시지</text>
+  <text x="200" y="288" fill="#4B5563" font-size="14" font-family="IBM Plex Sans KR, sans-serif">package-private 정책 아래 Domain과 Hidden Translation은 동일 패키지 경계 안에서 협력하고, Persistence는 경계 밖에서 Port로 연결</text>
+
+  <!-- PACKAGE BOUNDARY -->
+  <rect x="170" y="350" width="860" height="360" rx="22" fill="#F9FAFF" stroke="#7C3AED" stroke-width="3"/>
+  <text x="198" y="386" fill="#6D28D9" font-size="17" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">community.package  (package-private boundary)</text>
+
+  <!-- lock icon -->
+  <rect x="920" y="366" width="18" height="14" rx="3" fill="#7C3AED"/>
+  <path d="M924 366V360C924 355.6 927.6 352 932 352C936.4 352 940 355.6 940 360V366" stroke="#7C3AED" stroke-width="2"/>
+  <text x="946" y="378" fill="#7C3AED" font-size="11" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">외부 직접 접근 불가</text>
+
+  <!-- Domain area inside package -->
+  <rect x="198" y="426" width="356" height="250" rx="14" fill="#FFE6E6" stroke="#CC0000" stroke-width="1.8"/>
+  <text x="218" y="454" fill="#991B1B" font-size="14" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Domain Model (inside package)</text>
+  <rect x="218" y="472" width="316" height="50" rx="10" fill="#FFFFFF" stroke="#CC0000"/>
+  <text x="236" y="503" fill="#991B1B" font-size="13" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">CommunityAggregate</text>
+  <rect x="218" y="536" width="316" height="50" rx="10" fill="#FFFFFF" stroke="#CC0000"/>
+  <text x="236" y="567" fill="#991B1B" font-size="13" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Domain Invariants / Rules</text>
+  <rect x="218" y="600" width="316" height="50" rx="10" fill="#FFFFFF" stroke="#CC0000"/>
+  <text x="236" y="631" fill="#991B1B" font-size="13" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Repository Interface</text>
+
+  <!-- Hidden translation layer inside same package -->
+  <rect x="586" y="426" width="416" height="250" rx="14" fill="#FFF9E6" stroke="#F59E0B" stroke-width="2"/>
+  <rect x="586" y="426" width="416" height="250" rx="14" fill="url(#diag)" fill-opacity="0.3"/>
+  <text x="606" y="454" fill="#B45309" font-size="14" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">보이지 않는 번역 계층 (inside package)</text>
+  <text x="606" y="476" fill="#B45309" font-size="11" font-family="IBM Plex Sans KR, sans-serif">외부 패키지에 클래스 직접 공개 없음</text>
+  <rect x="606" y="492" width="376" height="50" rx="10" fill="#FFFFFF" stroke="#F59E0B"/>
+  <text x="624" y="523" fill="#B45309" font-size="13" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Persistence Mapper</text>
+  <rect x="606" y="556" width="376" height="50" rx="10" fill="#FFFFFF" stroke="#F59E0B"/>
+  <text x="624" y="587" fill="#B45309" font-size="13" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Entity ↔ Domain Assembler</text>
+  <rect x="606" y="620" width="376" height="40" rx="10" fill="#FFFFFF" stroke="#F59E0B"/>
+  <text x="624" y="646" fill="#B45309" font-size="12" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Storage DTO Normalizer</text>
+
+  <!-- Port on package boundary -->
+  <rect x="1014" y="540" width="16" height="40" rx="4" fill="#7C3AED"/>
+  <text x="940" y="534" fill="#6D28D9" font-size="11" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Repository Port</text>
+
+  <!-- Outside package: persistence adapter + db -->
+  <rect x="1070" y="426" width="360" height="250" rx="14" fill="#E6F3FF" stroke="#0066CC" stroke-width="1.8"/>
+  <text x="1090" y="454" fill="#0057B8" font-size="14" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Persistence Adapter (outside package)</text>
+  <rect x="1090" y="472" width="320" height="50" rx="10" fill="#FFFFFF" stroke="#0066CC"/>
+  <text x="1108" y="503" fill="#0057B8" font-size="13" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">JpaCommunityRepository</text>
+  <rect x="1090" y="536" width="320" height="50" rx="10" fill="#FFFFFF" stroke="#0066CC"/>
+  <text x="1108" y="567" fill="#0057B8" font-size="13" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">CommunityEntity / ORM Mapping</text>
+  <rect x="1090" y="600" width="320" height="50" rx="10" fill="#FFFFFF" stroke="#666"/>
+  <text x="1108" y="631" fill="#555" font-size="13" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">RDBMS / Schema</text>
+
+  <!-- Correct flow -->
+  <path d="M534 625H606" stroke="#8B5CF6" stroke-width="2.2" marker-end="url(#arrowMain)"/>
+  <path d="M982 565H1014" stroke="#8B5CF6" stroke-width="2.2" marker-end="url(#arrowMain)"/>
+  <path d="M1030 560H1090" stroke="#8B5CF6" stroke-width="2.2" marker-end="url(#arrowMain)"/>
+  <path d="M1090 631H982" stroke="#6B7280" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arrowMuted)"/>
+  <path d="M606 523H534" stroke="#6B7280" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arrowMuted)"/>
+
+  <!-- Forbidden direct path -->
+  <path d="M534 503 C700 360, 924 360, 1090 503" stroke="#EF4444" stroke-width="2" stroke-dasharray="6 5" fill="none"/>
+  <line x1="792" y1="374" x2="828" y2="410" stroke="#EF4444" stroke-width="3"/>
+  <line x1="828" y1="374" x2="792" y2="410" stroke="#EF4444" stroke-width="3"/>
+  <text x="606" y="340" fill="#B91C1C" font-size="11" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">금지: Domain -> Entity/DB 직접 접근 (package-private 경계 위반)</text>
+
+  <rect x="170" y="736" width="1260" height="86" rx="14" fill="#FBFAFF" stroke="#DDD6FE"/>
+  <text x="198" y="766" fill="#6D28D9" font-size="15" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">효과</text>
+  <text x="198" y="790" fill="#4B5563" font-size="13" font-family="IBM Plex Sans KR, sans-serif">1) 도메인 캡슐화 유지  2) DB 구조 변경 파급 최소화  3) 컨텍스트 경계/협업 규칙 명확화</text>
+
+  <rect x="1180" y="736" width="250" height="86" rx="12" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <text x="1198" y="760" fill="#6D28D9" font-size="13" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Legend</text>
+  <line x1="1198" y1="778" x2="1242" y2="778" stroke="#8B5CF6" stroke-width="2" marker-end="url(#arrowMain)"/>
+  <text x="1250" y="782" fill="#6B7280" font-size="11" font-family="IBM Plex Sans KR, sans-serif">정상 흐름</text>
+  <line x1="1198" y1="798" x2="1242" y2="798" stroke="#6B7280" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowMuted)"/>
+  <text x="1250" y="802" fill="#6B7280" font-size="11" font-family="IBM Plex Sans KR, sans-serif">역변환/피드백</text>
+</svg>
