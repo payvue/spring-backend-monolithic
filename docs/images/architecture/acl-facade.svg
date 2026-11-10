@@ -1,0 +1,134 @@
+<svg width="1600" height="980" viewBox="0 0 1600 980" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="220" y1="80" x2="1380" y2="920" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8F5FF"/>
+      <stop offset="0.58" stop-color="#F1EBFF"/>
+      <stop offset="1" stop-color="#ECE7FF"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="260" y1="230" x2="1200" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8B5CF6" stop-opacity="0.88"/>
+      <stop offset="1" stop-color="#A78BFA" stop-opacity="0.34"/>
+    </linearGradient>
+    <filter id="shadow" x="-12%" y="-12%" width="124%" height="124%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#7C3AED" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrowMain" markerWidth="11" markerHeight="11" refX="10" refY="5.5" orient="auto">
+      <path d="M0 0L11 5.5L0 11V0Z" fill="#8B5CF6"/>
+    </marker>
+    <marker id="arrowMuted" markerWidth="11" markerHeight="11" refX="10" refY="5.5" orient="auto">
+      <path d="M0 0L11 5.5L0 11V0Z" fill="#6B7280"/>
+    </marker>
+    <marker id="arrowAcl" markerWidth="11" markerHeight="11" refX="10" refY="5.5" orient="auto">
+      <path d="M0 0L11 5.5L0 11V0Z" fill="#F59E0B"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="980" fill="url(#bg)"/>
+  <ellipse cx="1285" cy="122" rx="236" ry="96" fill="#DDD6FE" fill-opacity="0.72"/>
+  <ellipse cx="250" cy="888" rx="292" ry="116" fill="#E9D5FF" fill-opacity="0.38"/>
+
+  <rect x="120" y="90" width="1360" height="800" rx="34" fill="#FFFFFF" stroke="#DDD6FE" stroke-width="2" filter="url(#shadow)"/>
+
+  <text x="178" y="166" fill="#6D28D9" font-size="24" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">ACL + Facade Execution Context</text>
+  <text x="178" y="198" fill="#6B7280" font-size="15" font-family="IBM Plex Sans KR, sans-serif">외부 연동의 오염을 차단하고, 복잡한 협력 흐름을 하나의 실행 문맥으로 재구성하는 구조</text>
+
+  <rect x="170" y="226" width="1260" height="94" rx="18" fill="#FBFAFF" stroke="url(#accent)" stroke-width="2"/>
+  <text x="202" y="262" fill="#5B21B6" font-size="18" font-family="IBM Plex Sans KR, sans-serif" font-weight="600">핵심 관점</text>
+  <text x="202" y="288" fill="#4B5563" font-size="14" font-family="IBM Plex Sans KR, sans-serif">ACL은 외부 모델을 내부 언어로 번역하고, Facade/Application Service는 여러 모듈 결과를 조합해 하나의 유즈케이스 흐름으로 정리</text>
+
+  <!-- Left: External -->
+  <rect x="170" y="350" width="360" height="360" rx="20" fill="#F5F5F5" stroke="#666" stroke-width="1.8"/>
+  <text x="196" y="386" fill="#555" font-size="17" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">외부 시스템</text>
+
+  <rect x="196" y="414" width="308" height="62" rx="10" fill="#FFFFFF" stroke="#666"/>
+  <text x="216" y="448" fill="#555" font-size="13" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Payment API (Toss, KakaoPay)</text>
+
+  <rect x="196" y="496" width="308" height="62" rx="10" fill="#FFFFFF" stroke="#666"/>
+  <text x="216" y="530" fill="#555" font-size="13" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Email Service (SES, SendGrid)</text>
+
+  <rect x="196" y="578" width="308" height="62" rx="10" fill="#FFFFFF" stroke="#666"/>
+  <text x="216" y="612" fill="#555" font-size="13" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">External Team Domain Model</text>
+
+  <!-- Middle: ACL -->
+  <rect x="570" y="350" width="460" height="360" rx="20" fill="#FFF9E6" stroke="#FF9800" stroke-width="2"/>
+  <text x="598" y="386" fill="#CC7A00" font-size="17" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">ACL (Anti-Corruption Layer)</text>
+
+  <rect x="598" y="414" width="404" height="58" rx="10" fill="#FFFFFF" stroke="#FF9800"/>
+  <text x="618" y="448" fill="#9A4E00" font-size="13" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">External DTO / 용어 수신</text>
+
+  <rect x="598" y="490" width="190" height="62" rx="10" fill="#FFFFFF" stroke="#FF9800"/>
+  <text x="618" y="525" fill="#9A4E00" font-size="13" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Translator</text>
+
+  <rect x="812" y="490" width="190" height="62" rx="10" fill="#FFFFFF" stroke="#FF9800"/>
+  <text x="832" y="525" fill="#9A4E00" font-size="13" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Adapter / Mapper</text>
+
+  <rect x="598" y="572" width="404" height="62" rx="10" fill="#FFFFFF" stroke="#FF9800"/>
+  <text x="618" y="607" fill="#9A4E00" font-size="13" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Internal Command / Query Model</text>
+
+  <!-- Right: Internal -->
+  <rect x="1070" y="350" width="360" height="360" rx="20" fill="#FFE6E6" stroke="#CC0000" stroke-width="2"/>
+  <text x="1096" y="386" fill="#991B1B" font-size="17" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">내부 실행 컨텍스트</text>
+
+  <rect x="1096" y="414" width="308" height="62" rx="10" fill="#FFFFFF" stroke="#CC0000"/>
+  <text x="1116" y="448" fill="#991B1B" font-size="13" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Facade / Application Service</text>
+
+  <rect x="1096" y="496" width="146" height="58" rx="10" fill="#FFFFFF" stroke="#CC0000"/>
+  <text x="1112" y="529" fill="#991B1B" font-size="12" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Generic Domain</text>
+
+  <rect x="1258" y="496" width="146" height="58" rx="10" fill="#FFFFFF" stroke="#CC0000"/>
+  <text x="1274" y="529" fill="#991B1B" font-size="12" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Core Domain</text>
+
+  <rect x="1096" y="574" width="308" height="62" rx="10" fill="#FFFFFF" stroke="#CC0000"/>
+  <text x="1116" y="608" fill="#991B1B" font-size="13" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">UseCase Result / Domain Event</text>
+
+  <!-- Flow arrows -->
+  <path d="M504 445H598" stroke="#F59E0B" stroke-width="2.2" stroke-dasharray="5 4" marker-end="url(#arrowAcl)"/>
+  <path d="M504 527H598" stroke="#F59E0B" stroke-width="2.2" stroke-dasharray="5 4" marker-end="url(#arrowAcl)"/>
+  <path d="M504 609H598" stroke="#F59E0B" stroke-width="2.2" stroke-dasharray="5 4" marker-end="url(#arrowAcl)"/>
+  <text x="512" y="402" fill="#A16207" font-size="11" font-family="IBM Plex Sans KR, sans-serif">ACL 경계 통과</text>
+
+  <path d="M800 472V490" stroke="#8B5CF6" stroke-width="2" marker-end="url(#arrowMain)"/>
+  <path d="M906 552V572" stroke="#8B5CF6" stroke-width="2" marker-end="url(#arrowMain)"/>
+  <path d="M788 521H812" stroke="#8B5CF6" stroke-width="2" marker-end="url(#arrowMain)"/>
+
+  <path d="M1002 603H1096" stroke="#8B5CF6" stroke-width="2.2" marker-end="url(#arrowMain)"/>
+  <text x="1010" y="592" fill="#6B7280" font-size="11" font-family="IBM Plex Sans KR, sans-serif">내부 언어로 변환 후 전달</text>
+
+  <path d="M1250 476V496" stroke="#8B5CF6" stroke-width="2" marker-end="url(#arrowMain)"/>
+  <path d="M1330 476V496" stroke="#8B5CF6" stroke-width="2" marker-end="url(#arrowMain)"/>
+  <path d="M1169 554V574" stroke="#8B5CF6" stroke-width="2" marker-end="url(#arrowMain)"/>
+  <path d="M1331 554V574" stroke="#8B5CF6" stroke-width="2" marker-end="url(#arrowMain)"/>
+
+  <path d="M1250 636V662H800V634" stroke="#6B7280" stroke-width="2" stroke-dasharray="5 4" fill="none" marker-end="url(#arrowMuted)"/>
+  <text x="936" y="654" fill="#6B7280" font-size="11" font-family="IBM Plex Sans KR, sans-serif">결과/이벤트 피드백</text>
+
+  <!-- Bottom orchestration strip -->
+  <rect x="170" y="746" width="1260" height="128" rx="16" fill="#FBFAFF" stroke="#DDD6FE" stroke-width="1.6"/>
+  <text x="196" y="778" fill="#6D28D9" font-size="15" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">유즈케이스 오케스트레이션</text>
+
+  <rect x="196" y="796" width="244" height="56" rx="10" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <text x="214" y="828" fill="#4B5563" font-size="12" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">1) 외부 API/모듈 호출</text>
+
+  <rect x="458" y="796" width="244" height="56" rx="10" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <text x="476" y="828" fill="#4B5563" font-size="12" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">2) ACL 번역/정제</text>
+
+  <rect x="720" y="796" width="244" height="56" rx="10" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <text x="738" y="828" fill="#4B5563" font-size="12" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">3) Facade로 흐름 통합</text>
+
+  <rect x="982" y="796" width="244" height="56" rx="10" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <text x="1000" y="828" fill="#4B5563" font-size="12" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">4) 실행 결과 반환</text>
+
+  <path d="M440 824H458" stroke="#8B5CF6" stroke-width="2" marker-end="url(#arrowMain)"/>
+  <path d="M702 824H720" stroke="#8B5CF6" stroke-width="2" marker-end="url(#arrowMain)"/>
+  <path d="M964 824H982" stroke="#8B5CF6" stroke-width="2" marker-end="url(#arrowMain)"/>
+
+  <!-- Legend -->
+  <rect x="1240" y="746" width="190" height="128" rx="12" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <text x="1258" y="770" fill="#6D28D9" font-size="13" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Legend</text>
+  <line x1="1258" y1="790" x2="1300" y2="790" stroke="#8B5CF6" stroke-width="2" marker-end="url(#arrowMain)"/>
+  <text x="1308" y="794" fill="#6B7280" font-size="11" font-family="IBM Plex Sans KR, sans-serif">실선: 내부 실행 흐름</text>
+  <line x1="1258" y1="812" x2="1300" y2="812" stroke="#6B7280" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowMuted)"/>
+  <text x="1308" y="816" fill="#6B7280" font-size="11" font-family="IBM Plex Sans KR, sans-serif">회색 점선: 피드백</text>
+  <line x1="1258" y1="834" x2="1300" y2="834" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowAcl)"/>
+  <text x="1308" y="838" fill="#6B7280" font-size="11" font-family="IBM Plex Sans KR, sans-serif">주황 점선: ACL 경계</text>
+</svg>

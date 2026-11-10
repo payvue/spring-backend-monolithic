@@ -1,0 +1,99 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="170" y1="40" x2="1440" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8F5FF"/>
+      <stop offset="0.56" stop-color="#F2ECFF"/>
+      <stop offset="1" stop-color="#ECE7FF"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="260" y1="230" x2="1320" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8B5CF6" stop-opacity="0.88"/>
+      <stop offset="1" stop-color="#A78BFA" stop-opacity="0.28"/>
+    </linearGradient>
+    <filter id="shadow" x="-12%" y="-12%" width="124%" height="124%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#7C3AED" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5.3" refY="3" orient="auto">
+      <path d="M0 0L6 3L0 6V0Z" fill="#7C3AED" fill-opacity="0.9"/>
+    </marker>
+    <marker id="arrowMuted" markerWidth="6" markerHeight="6" refX="5.3" refY="3" orient="auto">
+      <path d="M0 0L6 3L0 6V0Z" fill="#6B7280" fill-opacity="0.78"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <ellipse cx="1290" cy="130" rx="230" ry="92" fill="#DDD6FE" fill-opacity="0.7"/>
+  <ellipse cx="260" cy="794" rx="296" ry="120" fill="#E9D5FF" fill-opacity="0.35"/>
+
+  <rect x="120" y="84" width="1360" height="740" rx="34" fill="#FFFFFF" stroke="#DDD6FE" stroke-width="2" filter="url(#shadow)"/>
+
+  <text x="178" y="158" fill="#6D28D9" font-size="24" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Authentication Execution Context</text>
+  <text x="178" y="190" fill="#6B7280" font-size="16" font-family="IBM Plex Sans KR, sans-serif">인증 방식 차이를 `Handler` · `Strategy` · `NextStep` 조합으로 흡수하는 실행 컨텍스트</text>
+
+  <rect x="170" y="214" width="1260" height="98" rx="18" fill="#FBFAFF" stroke="url(#accent)" stroke-width="2"/>
+  <text x="198" y="252" fill="#5B21B6" font-size="18" font-family="IBM Plex Sans KR, sans-serif" font-weight="600">설계 의도</text>
+  <text x="198" y="281" fill="#4B5563" font-size="14" font-family="IBM Plex Sans KR, sans-serif">인증별 절차 차이는 모드 조합으로 수용하고, 핵심 흐름은 실행 컨텍스트에서 일관되게 유지</text>
+
+  <rect x="170" y="338" width="1260" height="456" rx="22" fill="#F9FAFF" stroke="#C4B5FD" stroke-width="2"/>
+
+  <text x="200" y="378" fill="#5B21B6" font-size="16" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">인증 방식 (`Mode`) 차이</text>
+
+  <rect x="200" y="396" width="386" height="134" rx="14" fill="#FFFFFF" stroke="#A78BFA"/>
+  <text x="224" y="430" fill="#5B21B6" font-size="15" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">비밀번호 인증</text>
+  <text x="224" y="456" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">즉시 검증 → 완료</text>
+  <text x="224" y="478" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">단일 단계 중심의 빠른 흐름</text>
+  <text x="224" y="500" fill="#5B21B6" font-size="11" font-family="IBM Plex Sans KR, sans-serif">매핑: Handler(검증) → Strategy(즉시 완료)</text>
+
+  <rect x="607" y="396" width="386" height="134" rx="14" fill="#FFFFFF" stroke="#A78BFA"/>
+  <text x="631" y="430" fill="#5B21B6" font-size="15" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">이메일 인증</text>
+  <text x="631" y="456" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">토큰 발급 → 외부 확인 → 재요청 → 검증</text>
+  <text x="631" y="478" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">다단계 + 외부 왕복 흐름</text>
+  <text x="631" y="500" fill="#5B21B6" font-size="11" font-family="IBM Plex Sans KR, sans-serif">매핑: Handler(발급/검증)</text>
+  <text x="631" y="518" fill="#5B21B6" font-size="11" font-family="IBM Plex Sans KR, sans-serif">→ Strategy(REDIRECT) → NextStep(재요청)</text>
+
+  <rect x="1014" y="396" width="386" height="134" rx="14" fill="#FFFFFF" stroke="#A78BFA"/>
+  <text x="1038" y="430" fill="#5B21B6" font-size="15" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">OAuth 인증</text>
+  <text x="1038" y="456" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">외부 리다이렉트 → 결과 분기 처리</text>
+  <text x="1038" y="478" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">콜백 기반의 분기 흐름</text>
+  <text x="1038" y="500" fill="#5B21B6" font-size="11" font-family="IBM Plex Sans KR, sans-serif">매핑: Handler(콜백 처리)</text>
+  <text x="1038" y="518" fill="#5B21B6" font-size="11" font-family="IBM Plex Sans KR, sans-serif">→ Strategy(REDIRECT) → NextStep(결과 분기)</text>
+
+  <line x1="200" y1="560" x2="1400" y2="560" stroke="#DDD6FE" stroke-width="1.5" stroke-dasharray="5 5"/>
+
+  <text x="200" y="582" fill="#5B21B6" font-size="16" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">실행 컨텍스트 조합</text>
+
+  <rect x="204" y="604" width="170" height="84" rx="12" fill="#FFFFFF" stroke="#A78BFA"/>
+  <text x="224" y="636" fill="#5B21B6" font-size="14" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Intent</text>
+  <text x="224" y="658" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">입력: 비번 / 이메일 / OAuth 시작</text>
+
+  <rect x="420" y="604" width="220" height="84" rx="12" fill="#FFFFFF" stroke="#A78BFA"/>
+  <text x="442" y="636" fill="#5B21B6" font-size="14" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Handler 단계</text>
+  <text x="442" y="658" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">검증/토큰 발급·검증/콜백 처리</text>
+
+  <rect x="686" y="604" width="220" height="84" rx="12" fill="#FFFFFF" stroke="#A78BFA"/>
+  <text x="708" y="636" fill="#5B21B6" font-size="14" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Strategy 단계</text>
+  <text x="708" y="658" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">즉시 완료 / REDIRECT 완료</text>
+
+  <rect x="952" y="604" width="220" height="84" rx="12" fill="#FFFFFF" stroke="#A78BFA"/>
+  <text x="974" y="636" fill="#5B21B6" font-size="14" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">NextStep 단계</text>
+  <text x="974" y="658" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">재요청 / 결과 분기 전이</text>
+
+  <rect x="1218" y="604" width="170" height="84" rx="12" fill="#FFFFFF" stroke="#A78BFA"/>
+  <text x="1238" y="636" fill="#5B21B6" font-size="14" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Completion</text>
+  <text x="1238" y="658" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">최종 인증 결과 확정</text>
+
+  <path d="M374 646H420" stroke="#7C3AED" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M640 646H686" stroke="#7C3AED" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M906 646H952" stroke="#7C3AED" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M1172 646H1218" stroke="#7C3AED" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <path d="M393 530V590" stroke="#6B7280" stroke-width="1.8" stroke-dasharray="4 4" marker-end="url(#arrowMuted)"/>
+  <path d="M800 530V590" stroke="#6B7280" stroke-width="1.8" stroke-dasharray="4 4" marker-end="url(#arrowMuted)"/>
+  <path d="M1207 530V590" stroke="#6B7280" stroke-width="1.8" stroke-dasharray="4 4" marker-end="url(#arrowMuted)"/>
+
+  <text x="200" y="734" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">변화 대응 방식: 기존 로직 직접 수정보다 조립 지점에 새 조합 추가</text>
+
+  <rect x="170" y="808" width="1260" height="34" rx="10" fill="#F5F3FF" stroke="#DDD6FE"/>
+  <text x="198" y="830" fill="#6B7280" font-size="11" font-family="IBM Plex Sans KR, sans-serif">실선: 실행 순서</text>
+  <text x="304" y="830" fill="#6B7280" font-size="11" font-family="IBM Plex Sans KR, sans-serif">점선: 모드별 차이가 조합 단계로 유입되는 경로</text>
+  <text x="566" y="830" fill="#6B7280" font-size="11" font-family="IBM Plex Sans KR, sans-serif">핵심: 인증은 고정 절차가 아니라 `확장 가능한 실행 흐름`</text>
+</svg>

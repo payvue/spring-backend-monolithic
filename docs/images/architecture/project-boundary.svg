@@ -1,0 +1,127 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="210" y1="60" x2="1390" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8F5FF"/>
+      <stop offset="0.58" stop-color="#F1EBFF"/>
+      <stop offset="1" stop-color="#ECE7FF"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="250" y1="210" x2="1220" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8B5CF6" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#A78BFA" stop-opacity="0.34"/>
+    </linearGradient>
+    <filter id="shadow" x="-12%" y="-12%" width="124%" height="124%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#7C3AED" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="4" markerHeight="4" refX="3.6" refY="2" orient="auto">
+      <path d="M0 0L4 2L0 4V0Z" fill="#8B5CF6" fill-opacity="0.85"/>
+    </marker>
+    <marker id="arrowMuted" markerWidth="4" markerHeight="4" refX="3.6" refY="2" orient="auto">
+      <path d="M0 0L4 2L0 4V0Z" fill="#6B7280" fill-opacity="0.8"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <ellipse cx="1290" cy="122" rx="232" ry="96" fill="#DDD6FE" fill-opacity="0.72"/>
+  <ellipse cx="250" cy="790" rx="290" ry="115" fill="#E9D5FF" fill-opacity="0.38"/>
+
+  <rect x="120" y="92" width="1360" height="720" rx="34" fill="#FFFFFF" stroke="#DDD6FE" stroke-width="2" filter="url(#shadow)"/>
+
+  <text x="180" y="166" fill="#6D28D9" font-size="24" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Project Structure</text>
+  <text x="180" y="198" fill="#6B7280" font-size="16" font-family="IBM Plex Sans KR, sans-serif">핵심 도메인은 분리 유지하고, 모놀리식 app 내부에서 조립/확장되는 구조</text>
+
+  <rect x="170" y="222" width="1260" height="96" rx="18" fill="#FBFAFF" stroke="url(#accent)" stroke-width="2"/>
+  <text x="200" y="260" fill="#5B21B6" font-size="18" font-family="IBM Plex Sans KR, sans-serif" font-weight="600">설계 의도</text>
+  <text x="200" y="288" fill="#4B5563" font-size="14" font-family="IBM Plex Sans KR, sans-serif">Abstract Core(core/supporting/generic/shared)를 중심 축으로 유지하고, app에서 유스케이스 조립과 인프라 연결을 담당</text>
+
+  <!-- Left: Abstract Core -->
+  <rect x="170" y="352" width="620" height="392" rx="20" fill="#F9FAFF" stroke="#C4B5FD" stroke-width="2"/>
+  <text x="198" y="388" fill="#7C3AED" font-size="17" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Abstract Core (별도 저장소 / 독립 도메인 축)</text>
+
+  <rect x="198" y="412" width="268" height="142" rx="14" fill="#FFEAEA" stroke="#CC0000" stroke-width="1.7"/>
+  <text x="220" y="442" fill="#991B1B" font-size="14" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">core</text>
+  <text x="220" y="468" fill="#7F1D1D" font-size="12" font-family="IBM Plex Sans KR, sans-serif">service 중심 도메인 규칙</text>
+  <text x="220" y="490" fill="#7F1D1D" font-size="12" font-family="IBM Plex Sans KR, sans-serif">- asset</text>
+  <text x="220" y="510" fill="#7F1D1D" font-size="12" font-family="IBM Plex Sans KR, sans-serif">- community</text>
+  <text x="220" y="530" fill="#7F1D1D" font-size="12" font-family="IBM Plex Sans KR, sans-serif">- transaction</text>
+
+  <rect x="494" y="412" width="268" height="142" rx="14" fill="#EEF1FF" stroke="#445" stroke-width="1.6"/>
+  <text x="516" y="442" fill="#374151" font-size="14" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">supporting</text>
+  <text x="516" y="468" fill="#374151" font-size="12" font-family="IBM Plex Sans KR, sans-serif">핵심 도메인 보조 컨텍스트</text>
+  <text x="516" y="490" fill="#374151" font-size="12" font-family="IBM Plex Sans KR, sans-serif">- interaction</text>
+  <text x="516" y="510" fill="#374151" font-size="12" font-family="IBM Plex Sans KR, sans-serif">- user</text>
+  <text x="516" y="530" fill="#374151" font-size="12" font-family="IBM Plex Sans KR, sans-serif">- kyc</text>
+
+  <rect x="198" y="578" width="268" height="142" rx="14" fill="#FFF9E6" stroke="#FF9800" stroke-width="1.7"/>
+  <text x="220" y="608" fill="#9A4E00" font-size="14" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">generic</text>
+  <text x="220" y="634" fill="#9A4E00" font-size="12" font-family="IBM Plex Sans KR, sans-serif">공통 기능/서브도메인</text>
+  <text x="220" y="656" fill="#9A4E00" font-size="12" font-family="IBM Plex Sans KR, sans-serif">- payment</text>
+  <text x="220" y="676" fill="#9A4E00" font-size="12" font-family="IBM Plex Sans KR, sans-serif">- alarm</text>
+
+  <rect x="494" y="578" width="268" height="142" rx="14" fill="#E6FFF5" stroke="#008866" stroke-width="1.7"/>
+  <text x="516" y="608" fill="#065F46" font-size="14" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">shared</text>
+  <text x="516" y="634" fill="#065F46" font-size="12" font-family="IBM Plex Sans KR, sans-serif">도메인 공통 타입/계약</text>
+  <text x="516" y="656" fill="#065F46" font-size="12" font-family="IBM Plex Sans KR, sans-serif">- 식별자, 값 객체</text>
+  <text x="516" y="676" fill="#065F46" font-size="12" font-family="IBM Plex Sans KR, sans-serif">- 공통 인터페이스</text>
+
+  <!-- Right: Monolithic app -->
+  <rect x="830" y="352" width="600" height="392" rx="20" fill="#F5F3FF" stroke="#A78BFA" stroke-width="2"/>
+  <text x="858" y="388" fill="#6D28D9" font-size="17" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">Monolithic app (공유 패키지 + app 계층 흐름)</text>
+
+  <rect x="858" y="412" width="544" height="86" rx="12" fill="#FFFFFF" stroke="#A78BFA"/>
+  <text x="878" y="442" fill="#5B21B6" font-size="14" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">공유 패키지 영역</text>
+  <text x="878" y="466" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">com.payvue.core / supporting / generic / shared</text>
+  <text x="878" y="486" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">Abstract Core 저장소 모듈과 공유</text>
+
+  <rect x="858" y="520" width="262" height="96" rx="12" fill="#FFFFFF" stroke="#A78BFA"/>
+  <text x="878" y="550" fill="#5B21B6" font-size="14" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">app.application</text>
+  <text x="878" y="574" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">유스케이스 조립</text>
+  <text x="878" y="594" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">실행 흐름(`Flow` / `Context`)</text>
+
+  <rect x="1140" y="520" width="262" height="96" rx="12" fill="#FFFFFF" stroke="#A78BFA"/>
+  <text x="1160" y="550" fill="#5B21B6" font-size="14" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">app.domain</text>
+  <text x="1160" y="574" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">앱 특화 도메인 확장</text>
+  <text x="1160" y="594" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">요구사항 대응 모델</text>
+
+  <rect x="858" y="632" width="262" height="88" rx="12" fill="#FFFFFF" stroke="#A78BFA"/>
+  <text x="878" y="660" fill="#5B21B6" font-size="14" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">app.presentation</text>
+  <text x="878" y="682" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">REST/SSE 진입점</text>
+  <text x="878" y="702" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">요청/응답 모델</text>
+
+  <rect x="1140" y="632" width="262" height="88" rx="12" fill="#FFFFFF" stroke="#A78BFA"/>
+  <text x="1160" y="660" fill="#5B21B6" font-size="14" font-family="IBM Plex Sans KR, sans-serif" font-weight="700">app.infrastructure</text>
+  <text x="1160" y="682" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">persistence / pg / mail / redis</text>
+  <text x="1160" y="702" fill="#6B7280" font-size="12" font-family="IBM Plex Sans KR, sans-serif">프레임워크 연결</text>
+
+  <text x="878" y="736" fill="#6B7280" font-size="11" font-family="IBM Plex Sans KR, sans-serif">presentation → application → domain</text>
+  <text x="1160" y="736" fill="#6B7280" font-size="11" font-family="IBM Plex Sans KR, sans-serif">application → infrastructure → domain</text>
+
+  <!-- Internal app flow arrows -->
+  <path d="M989 632V616" stroke="#8B5CF6" stroke-width="2.1" marker-end="url(#arrow)"/>
+  <path d="M1120 568H1140" stroke="#8B5CF6" stroke-width="2.1" marker-end="url(#arrow)"/>
+  <path d="M1120 584H1230V632" stroke="#8B5CF6" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <path d="M1271 632V616" stroke="#8B5CF6" stroke-width="2.1" marker-end="url(#arrow)"/>
+
+  <!-- Monolithic shared packages -> Abstract Core -->
+  <path d="M858 434H790" stroke="#8B5CF6" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <path d="M858 456H790" stroke="#8B5CF6" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <path d="M858 478H790" stroke="#8B5CF6" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <text x="804" y="418" fill="#6B7280" font-size="11" font-family="IBM Plex Sans KR, sans-serif">의존성: Monolithic 공유 패키지 → Abstract Core</text>
+
+  <path d="M1271 720V748H1190V720" stroke="#6B7280" stroke-width="2" stroke-dasharray="5 4" fill="none" marker-end="url(#arrowMuted)"/>
+  <text x="1050" y="742" fill="#6B7280" font-size="11" font-family="IBM Plex Sans KR, sans-serif">app 계층은 공유 패키지를 통해 도메인 규칙과 정렬</text>
+
+  <!-- Legend -->
+  <rect x="170" y="768" width="1260" height="34" rx="10" fill="#F5F3FF" stroke="#DDD6FE"/>
+  <rect x="192" y="777" width="11" height="11" rx="3" fill="#FFEAEA" stroke="#CC0000"/>
+  <text x="212" y="786" fill="#6B7280" font-size="11" font-family="IBM Plex Sans KR, sans-serif">core</text>
+  <rect x="270" y="777" width="11" height="11" rx="3" fill="#EEF1FF" stroke="#445"/>
+  <text x="290" y="786" fill="#6B7280" font-size="11" font-family="IBM Plex Sans KR, sans-serif">supporting</text>
+  <rect x="388" y="777" width="11" height="11" rx="3" fill="#FFF9E6" stroke="#FF9800"/>
+  <text x="408" y="786" fill="#6B7280" font-size="11" font-family="IBM Plex Sans KR, sans-serif">generic</text>
+  <rect x="494" y="777" width="11" height="11" rx="3" fill="#E6FFF5" stroke="#008866"/>
+  <text x="514" y="786" fill="#6B7280" font-size="11" font-family="IBM Plex Sans KR, sans-serif">shared</text>
+  <rect x="596" y="777" width="11" height="11" rx="3" fill="#F5F3FF" stroke="#A78BFA"/>
+  <text x="616" y="786" fill="#6B7280" font-size="11" font-family="IBM Plex Sans KR, sans-serif">app</text>
+  <text x="712" y="786" fill="#6B7280" font-size="11" font-family="IBM Plex Sans KR, sans-serif">실선: app 내부 실행 흐름 + 모놀리식 → Abstract Core 의존</text>
+  <text x="1008" y="786" fill="#6B7280" font-size="11" font-family="IBM Plex Sans KR, sans-serif">점선: app 내부 정렬/피드백</text>
+</svg>
